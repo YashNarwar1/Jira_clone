@@ -71,6 +71,7 @@ interface TaskListProps {
 export const TaskList = ({ data, total }: TaskListProps) => {
   const { open: createTask } = useCreateTaskModal();
   const workspaceId = useWorkspaceId();
+
   return (
     <div className="flex flex-col gap-y-4 col-span-1">
       <div className="bg-muted rounded-lg p-4">
@@ -84,7 +85,7 @@ export const TaskList = ({ data, total }: TaskListProps) => {
         <ul className="flex flex-col gap-y-4">
           {data.map((task) => (
             <li key={task.id}>
-              <Link href={`/workspaces/${workspaceId}/tasks/${task.id}`}>
+              <Link href={`/workspaces/${workspaceId}/tasks/${task.$id}`}>
                 <Card className="shadow-none rounded-lg hover:opacity-75 transition">
                   <CardContent className="p-4">
                     <p className="text-lg font-medium truncate">{task.name}</p>
@@ -136,7 +137,7 @@ export const ProjectList = ({ data, total }: ProjectListProps) => {
         <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {data.map((project) => (
             <li key={project.id}>
-              <Link href={`/workspaces/${workspaceId}/projects/${project.id}`}>
+              <Link href={`/workspaces/${workspaceId}/projects/${project.$id}`}>
                 <Card className="shadow-none rounded-lg hover:opacity-75 transition">
                   <CardContent className="p-4 flex items-center gap-x-2.5">
                     <ProjectAvatar

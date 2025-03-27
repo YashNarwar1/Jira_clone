@@ -10,7 +10,6 @@ import { DottedSeprator } from "@/components/dottedSeprator";
 
 import { cn } from "@/lib/utils";
 
-import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -51,7 +50,6 @@ export const CreateTaskForm = ({
   memberOptions,
 }: CreateTaskFormProps) => {
   const { mutate, isPending } = useCreateTask();
-  const router = useRouter();
 
   const workspaceId = useWorkspaceId();
 

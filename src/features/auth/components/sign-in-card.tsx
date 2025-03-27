@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
+import { signUpWithGithub } from "@/lib/oauth";
+
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { DottedSeprator } from "@/components/dottedSeprator";
 import { Input } from "@/components/ui/input";
@@ -98,7 +100,11 @@ export const SignInCard = () => {
           <FcGoogle className="mr-2 size-2" />
           Login with google
         </Button>
-        <Button className="w-full" variant="secondary" disabled={isPending}>
+        <Button
+          className="w-full"
+          variant="secondary"
+          onClick={() => signUpWithGithub()}
+          disabled={isPending}>
           <FaGithub className="mr-2 size-2" />
           Login with github
         </Button>

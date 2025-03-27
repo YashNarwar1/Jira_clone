@@ -10,7 +10,6 @@ import { DottedSeprator } from "@/components/dottedSeprator";
 
 import { cn } from "@/lib/utils";
 
-import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -22,7 +21,6 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { createTaskSchema } from "../schema";
 import { DatePicker } from "@/components/date-picker";
 import {
@@ -52,9 +50,6 @@ export const EditTaskForm = ({
   initialValues,
 }: EditTaskFormProps) => {
   const { mutate, isPending } = useUpdateTask();
-  const router = useRouter();
-
-  const workspaceId = useWorkspaceId();
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
     resolver: zodResolver(
